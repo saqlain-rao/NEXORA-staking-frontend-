@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* LIGHT MODE (Default) - Premium Light Grey */
+:root {
+  --bg-main: #F3F4F6;
+  --bg-panel: #FAFAFA;
+  
+  --border-color: #CBD5E1;
+  --border-light: #94A3B8;
+  
+  --text-main: #0F172A;
+  --text-gray: #64748B;
+  --text-darkgray: #94A3B8;
+  
+  /* Constant Accent Colors */
+  --bybit-orange: #FFB11A;
+  --bybit-orange-hover: #FFC03F;
+  --bybit-green: #00C087;
+  --bybit-red: #FF5D5D;
+  
+  /* Input & Expanded States */
+  --bg-input: #FFFFFF;
+  --bg-expanded: #E5E7EB;
+  
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* DARK MODE - Authentic Bybit Deep Black/Gray */
+[data-theme="dark"] {
+  --bg-main: #000000;
+  --bg-panel: linear-gradient(180deg, #24262b 0%, #17181e 100%);
+  
+  --border-color: rgba(255, 255, 255, 0.06);
+  --border-light: rgba(255, 255, 255, 0.12);
+  
+  --text-main: #ffffff;
+  --text-gray: #B0B8C1;
+  --text-darkgray: #6F757D;
+  
+  --bg-input: #17181E;
+  --bg-expanded: rgba(0,0,0,0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; transition: 0.2s ease; }
+
+.app-wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Bybit Style Panels */
+.bybit-panel {
+  background: var(--bg-panel);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="dark"] .bybit-panel {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Typography Classes */
+.text-orange { color: var(--bybit-orange); }
+.text-green { color: var(--bybit-green); }
+.text-red { color: var(--bybit-red); }
+.text-gray { color: var(--text-gray); }
+.text-main { color: var(--text-main); }
+
+/* Input Field matching Bybit Hero */
+.hero-input-group {
+  display: flex;
+  align-items: center;
+  background: var(--bg-input);
+  border: 1px solid var(--border-light);
+  border-radius: 32px;
+  padding: 6px 6px 6px 20px;
+  width: 100%;
+  max-width: 480px;
+  margin-top: 2rem;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.hero-input {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-size: 1rem;
+  flex: 1;
+  outline: none;
+}
+
+.hero-input::placeholder {
+  color: var(--text-darkgray);
+}
+
+.btn-orange {
+  background: var(--bybit-orange);
+  color: #000;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 24px;
+  font-size: 1rem;
+}
+
+.btn-orange:hover {
+  background: var(--bybit-orange-hover);
+}
+
+.btn-outline {
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.btn-outline:hover {
+  background: rgba(128,128,128,0.1);
+}
+
+/* Table Row (Hot Coins list) */
+.list-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+}
+.list-row:last-child {
+  border-bottom: none;
+}
