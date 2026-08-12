@@ -1,5 +1,6 @@
 // import React from 'react';
 import { TonConnectButton } from '@tonconnect/ui-react';
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 
 const Navbar = ({ 
   theme, 
@@ -20,8 +21,9 @@ const Navbar = ({
   const networks = ['All', 'Ethereum', 'BSC', 'Solana', 'TON'];
 
   return (
-    <nav className="flex-wrap-row" style={{ justifyContent: 'space-between', alignItems: 'center', minHeight: '80px', padding: '1rem 0', gap: '1rem' }}>
-      <div className="flex-wrap-row" style={{ alignItems: 'center', gap: '1.5rem' }}>
+    <nav className="navbar-container">
+      {/* Top Row: Logo & Actions */}
+      <div className="navbar-top-row">
         {/* Next-Gen Logo */}
         <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
           <h2 style={{ fontSize: '1.6rem', margin: 0, fontWeight: '900', letterSpacing: '-0.5px' }}>
@@ -29,56 +31,58 @@ const Navbar = ({
           </h2>
         </div>
         
-        {/* Web3 Network Selection */}
-        <div style={{ display: 'flex', gap: '0.5rem', fontSize: '0.9rem', fontWeight: '600', overflowX: 'auto', paddingBottom: '4px', maxWidth: '100vw' }}>
-          {networks.map(net => (
-            <div 
-              key={net}
-              onClick={() => setSelectedNetwork(net)}
-              style={{
-                cursor: 'pointer',
-                padding: '6px 16px',
-                borderRadius: '20px',
-                background: selectedNetwork === net ? 'var(--text-main)' : 'transparent',
-                color: selectedNetwork === net ? 'var(--bg-main)' : 'var(--text-gray)',
-                transition: 'all 0.2s ease',
-                whiteSpace: 'nowrap'
-              }}
+        {/* Right side Actions */}
+        <div className="navbar-actions">
+          {toggleTheme && (
+            <button 
+              onClick={toggleTheme} 
+              style={{ fontSize: '1.2rem', padding: '8px', cursor: 'pointer', opacity: 0.8 }}
+              title="Toggle Theme"
             >
-              {net}
+              {theme === 'light' ? '🌙' : '☀️'}
+            </button>
+          )}
+
+          <button 
+            onClick={() => setIsAdminOpen(!isAdminOpen)}
+            className="btn-outline"
+            style={{ borderColor: 'var(--bybit-orange)', color: 'var(--bybit-orange)' }}
+          >
+            <span className="admin-text-label">{isAdminOpen ? 'Close Admin' : 'Admin Panel'}</span>
+            <span className="admin-icon-label" title="Admin Panel">🛡️</span>
+          </button>
+
+          {selectedNetwork === 'Solana' ? (
+             <WalletMultiButton style={{ background: 'var(--bybit-orange)', color: '#000', borderRadius: '24px', fontWeight: '700', height: '40px', padding: '0 16px', lineHeight: '40px' }} />
+          ) : selectedNetwork === 'TON' ? (
+             <TonConnectButton />
+          ) : (
+            <div style={{ height: '40px', display: 'flex', alignItems: 'center' }}>
+              <w3m-button balance="hide" size="sm" />
             </div>
-          ))}
+          )}
         </div>
       </div>
-      
-      {/* Right side Web3 tools */}
-      <div className="flex-wrap-row" style={{ gap: '1rem', alignItems: 'center' }}>
-        {toggleTheme && (
-          <button 
-            onClick={toggleTheme} 
-            style={{ fontSize: '1.2rem', padding: '4px' }}
-            title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
+
+      {/* Bottom Row: Web3 Network Selection */}
+      <div className="navbar-networks-row">
+        {networks.map(net => (
+          <div 
+            key={net}
+            onClick={() => setSelectedNetwork(net)}
+            style={{
+              cursor: 'pointer',
+              padding: '6px 16px',
+              borderRadius: '20px',
+              background: selectedNetwork === net ? 'var(--text-main)' : 'transparent',
+              color: selectedNetwork === net ? 'var(--bg-main)' : 'var(--text-gray)',
+              transition: 'all 0.2s ease',
+              whiteSpace: 'nowrap'
+            }}
           >
-            {theme === 'light' ? '🌙' : '☀️'}
-          </button>
-        )}
-        <button 
-          onClick={() => setIsAdminOpen(!isAdminOpen)}
-          style={{
-            background: isAdminOpen ? 'var(--bybit-orange)' : 'var(--bg-input)',
-            color: isAdminOpen ? '#fff' : 'var(--bybit-orange)',
-            border: '1px solid var(--bybit-orange)',
-            padding: '8px 16px',
-            borderRadius: '8px',
-            fontWeight: '600',
-            cursor: 'pointer',
-            transition: 'all 0.2s'
-          }}
-        >
-          {isAdminOpen ? 'Close Admin' : 'Admin Panel'}
-        </button>
-        <w3m-button />
-        <TonConnectButton />
+            {net}
+          </div>
+        ))}
       </div>
     </nav>
   );

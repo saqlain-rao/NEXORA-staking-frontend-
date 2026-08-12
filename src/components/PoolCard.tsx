@@ -255,39 +255,38 @@ const PoolCard = ({ pool }: { pool: any }) => {
   return (
     <div style={{ borderBottom: '1px solid var(--border-color)' }}>
       <div 
-        className="list-row" 
-        style={{ cursor: 'pointer', borderBottom: 'none' }} 
+        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 0', cursor: 'pointer' }} 
         onClick={() => setExpanded(!expanded)}
       >
-        {/* Column 1: Logo and Name */}
+        {/* Left: Logo & Details */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           {pool.stakingToken.logo ? (
-            <img src={pool.stakingToken.logo} alt="logo" style={{ width: 32, height: 32, borderRadius: '50%' }} />
+            <img src={pool.stakingToken.logo} alt="logo" style={{ width: 40, height: 40, borderRadius: '50%' }} />
           ) : (
-            <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'var(--border-light)' }}></div>
+            <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'var(--border-light)' }}></div>
           )}
-          <div style={{ fontWeight: '700', letterSpacing: '0.5px', fontSize: '1.05rem' }}>
-            {pool.name}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+            <span style={{ fontWeight: '700', letterSpacing: '0.5px', fontSize: '1.05rem' }}>
+              {pool.name}
+            </span>
+            <span style={{ fontSize: '0.85rem', color: 'var(--text-gray)', fontWeight: '500' }}>
+              {pool.totalStaked} {pool.stakingToken.symbol}
+            </span>
           </div>
         </div>
         
-        {/* Column 2: Value/Size */}
-        <div style={{ textAlign: 'right', fontWeight: '500', color: 'var(--text-gray)' }}>
-          {pool.totalStaked} <span style={{ fontSize: '0.8rem' }}>{pool.stakingToken.symbol}</span>
-        </div>
-        
-        {/* Column 3: Highlighted Rewards */}
-        <div style={{ textAlign: 'right' }}>
+        {/* Right: Reward Pill */}
+        <div>
           <div style={{ 
-            fontSize: '1rem', 
+            fontSize: '0.9rem', 
             color: 'var(--bybit-green)', 
             fontWeight: '800', 
             backgroundColor: 'rgba(16, 185, 129, 0.15)', 
             padding: '6px 12px', 
             borderRadius: '8px',
-            display: 'inline-block'
+            whiteSpace: 'nowrap'
           }}>
-            +{dynamicApy}% Reward
+            +{dynamicApy}% APR
           </div>
         </div>
       </div>
