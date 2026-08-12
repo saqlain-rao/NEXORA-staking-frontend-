@@ -12,7 +12,7 @@ const projectId = 'b56e18d47c72ab683b10814fe9495694'; // Demo Project ID
 const metadata = {
   name: 'NEXORA Staking Marketplace',
   description: 'Premium Web3 Staking Platform (Testnet Mode)',
-  url: 'http://localhost:5178', // origin must match your domain & subdomain
+  url: typeof window !== 'undefined' ? window.location.origin : 'https://frontendnexora-jkhy.vercel.app', // origin must match your domain & subdomain
   icons: ['https://avatars.githubusercontent.com/u/37784886']
 }
 
