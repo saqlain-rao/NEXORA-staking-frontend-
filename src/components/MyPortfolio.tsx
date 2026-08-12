@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useAccount, useWriteContract, useWaitForTransactionReceipt } from 'wagmi';
 import { StakingABI, MOCK_CONTRACT_ADDRESSES } from '../contracts/StakingABI';
-import { parseEther } from 'viem';
+// import { parseEther } from 'viem';
 
 const MyPortfolio = () => {
   const { address, isConnected } = useAccount();

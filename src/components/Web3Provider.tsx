@@ -3,7 +3,7 @@ import { defaultWagmiConfig } from '@web3modal/wagmi/react/config';
 import { WagmiProvider } from 'wagmi';
 import { sepolia, bscTestnet } from 'wagmi/chains';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import React, { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 
 // 1. Get projectId at https://cloud.walletconnect.com
 const projectId = 'b56e18d47c72ab683b10814fe9495694'; // Demo Project ID

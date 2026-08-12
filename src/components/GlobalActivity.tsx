@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useAccount, useWriteContract, useWaitForTransactionReceipt } from 'wagmi';
 import { StakingABI, MOCK_CONTRACT_ADDRESSES } from '../contracts/StakingABI';
 
