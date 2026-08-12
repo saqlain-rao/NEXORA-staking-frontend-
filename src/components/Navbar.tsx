@@ -1,6 +1,5 @@
 // import React from 'react';
 import { TonConnectButton } from '@tonconnect/ui-react';
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 
 const Navbar = ({ 
   theme, 
@@ -53,7 +52,23 @@ const Navbar = ({
           </button>
 
           {selectedNetwork === 'Solana' ? (
-             <WalletMultiButton style={{ background: 'var(--bybit-orange)', color: '#000', borderRadius: '24px', fontWeight: '700', height: '40px', padding: '0 16px', lineHeight: '40px' }} />
+             <button 
+                onClick={async () => {
+                  try {
+                    const solana = (window as any).solana;
+                    if (solana && solana.isPhantom) {
+                      await solana.connect();
+                    } else {
+                      window.open('https://phantom.app/', '_blank');
+                    }
+                  } catch (e) {
+                    console.error(e);
+                  }
+                }}
+                style={{ background: 'var(--bybit-orange)', color: '#000', borderRadius: '24px', fontWeight: '700', height: '40px', padding: '0 16px' }}
+             >
+                Phantom
+             </button>
           ) : selectedNetwork === 'TON' ? (
              <TonConnectButton />
           ) : (
