@@ -29,7 +29,8 @@ function App() {
   useEffect(() => {
     const fetchMarkets = async () => {
       try {
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5005/api/v1';
+        const _rawApi = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5005/api/v1';
+      const apiUrl = _rawApi.endsWith('/api/v1') ? _rawApi : `${_rawApi.replace(/\/$/, '')}/api/v1`;
         const res = await fetch(`${apiUrl}/pools`);
         
         if (!res.ok) throw new Error('Failed to fetch markets');

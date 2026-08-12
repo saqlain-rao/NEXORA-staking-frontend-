@@ -23,7 +23,8 @@ const MyPortfolio = () => {
   const fetchStakes = async () => {
     setLoading(true);
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5005/api/v1';
+      const _rawApi = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5005/api/v1';
+      const apiUrl = _rawApi.endsWith('/api/v1') ? _rawApi : `${_rawApi.replace(/\/$/, '')}/api/v1`;
       const res = await fetch(`${apiUrl}/pools/stakes/${address}`);
       const data = await res.json();
       if (data.success) {
@@ -39,7 +40,8 @@ const MyPortfolio = () => {
   // When tx is confirmed, notify backend to update status to unstaked
   useEffect(() => {
     if (isConfirmed && selectedUnstake) {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5005/api/v1';
+      const _rawApi = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5005/api/v1';
+      const apiUrl = _rawApi.endsWith('/api/v1') ? _rawApi : `${_rawApi.replace(/\/$/, '')}/api/v1`;
       fetch(`${apiUrl}/pools/unstake`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

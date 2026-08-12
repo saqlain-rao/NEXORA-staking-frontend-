@@ -74,7 +74,8 @@ const PoolCard = ({ pool }: { pool: any }) => {
       const activeAddress = isSolanaConfirmed ? solanaPublicKey : (isTonConfirmed ? tonAddress : address);
       const activeHash = isSolanaConfirmed ? solanaTxHash : (isTonConfirmed ? tonTxHash : hash);
       
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5005/api/v1';
+      const _rawApi = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5005/api/v1';
+      const apiUrl = _rawApi.endsWith('/api/v1') ? _rawApi : `${_rawApi.replace(/\/$/, '')}/api/v1`;
       fetch(`${apiUrl}/pools/stake`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
