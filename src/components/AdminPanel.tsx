@@ -135,7 +135,7 @@ const AdminPanel = () => {
         <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '150px', height: '150px', background: 'var(--bybit-orange)', filter: 'blur(100px)', opacity: 0.3, zIndex: 0 }}></div>
         
         <div style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '2rem' }}>
+          <div className="flex-wrap-row" style={{ alignItems: 'center', justifyContent: 'space-between', marginBottom: '2rem', gap: '1rem' }}>
             <h2 style={{ fontSize: '1.8rem', fontWeight: '800', margin: 0, display: 'flex', alignItems: 'center', gap: '12px' }}>
               <span style={{ fontSize: '2rem' }}>🛡️</span> Dedicated Admin Dashboard
             </h2>
@@ -281,7 +281,7 @@ const AdminPanel = () => {
                   </div>
                 )}
 
-                <div style={{ display: 'flex', gap: '12px' }}>
+                <div className="flex-wrap-row" style={{ gap: '12px' }}>
                   <button 
                     className="btn-outline" 
                     style={{ flex: 1, padding: '12px', borderRadius: '8px', cursor: 'pointer' }}

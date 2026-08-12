@@ -20,8 +20,8 @@ const Navbar = ({
   const networks = ['All', 'Ethereum', 'BSC', 'Solana', 'TON'];
 
   return (
-    <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '80px', background: 'transparent' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '3rem' }}>
+    <nav className="flex-wrap-row" style={{ justifyContent: 'space-between', alignItems: 'center', minHeight: '80px', padding: '1rem 0', gap: '1rem' }}>
+      <div className="flex-wrap-row" style={{ alignItems: 'center', gap: '1.5rem' }}>
         {/* Next-Gen Logo */}
         <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
           <h2 style={{ fontSize: '1.6rem', margin: 0, fontWeight: '900', letterSpacing: '-0.5px' }}>
@@ -30,7 +30,7 @@ const Navbar = ({
         </div>
         
         {/* Web3 Network Selection */}
-        <div style={{ display: 'flex', gap: '0.5rem', fontSize: '0.9rem', fontWeight: '600' }}>
+        <div style={{ display: 'flex', gap: '0.5rem', fontSize: '0.9rem', fontWeight: '600', overflowX: 'auto', paddingBottom: '4px', maxWidth: '100vw' }}>
           {networks.map(net => (
             <div 
               key={net}
@@ -41,7 +41,8 @@ const Navbar = ({
                 borderRadius: '20px',
                 background: selectedNetwork === net ? 'var(--text-main)' : 'transparent',
                 color: selectedNetwork === net ? 'var(--bg-main)' : 'var(--text-gray)',
-                transition: 'all 0.2s ease'
+                transition: 'all 0.2s ease',
+                whiteSpace: 'nowrap'
               }}
             >
               {net}
@@ -51,7 +52,7 @@ const Navbar = ({
       </div>
       
       {/* Right side Web3 tools */}
-      <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+      <div className="flex-wrap-row" style={{ gap: '1rem', alignItems: 'center' }}>
         {toggleTheme && (
           <button 
             onClick={toggleTheme} 

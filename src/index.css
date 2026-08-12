@@ -68,6 +68,22 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 0 2rem;
 }
 
+/* Responsive Typography */
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-gray);
+  font-weight: 500;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 /* Bybit Style Panels */
 .bybit-panel {
   background: var(--bg-panel);
@@ -156,4 +172,49 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .list-row:last-child {
   border-bottom: none;
+}
+
+/* Base Flex Utilities */
+.flex-wrap-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+  .app-wrapper {
+    padding: 0 1rem;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+    letter-spacing: -1px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-input-group {
+    padding: 4px 4px 4px 16px;
+  }
+  
+  .btn-orange, .btn-outline {
+    font-size: 0.85rem;
+    padding: 10px 16px;
+  }
+  
+  .list-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    text-align: left;
+  }
+  
+  .list-row > div {
+    text-align: left !important;
+  }
+  
+  .bybit-panel {
+    padding: 1rem;
+  }
 }

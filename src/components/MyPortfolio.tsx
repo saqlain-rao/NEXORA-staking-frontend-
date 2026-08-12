@@ -104,7 +104,7 @@ const MyPortfolio = () => {
             const isUnstakingThis = selectedUnstake === stake._id && (isPending || isConfirming);
             
             return (
-              <div key={stake._id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem', borderBottom: '1px solid var(--border-color)', background: stake.status === 'unstaked' ? 'var(--bg-expanded)' : 'transparent' }}>
+              <div className="flex-wrap-row" key={stake._id} style={{ justifyContent: 'space-between', alignItems: 'center', padding: '1rem', borderBottom: '1px solid var(--border-color)', background: stake.status === 'unstaked' ? 'var(--bg-expanded)' : 'transparent', gap: '1rem' }}>
                 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   {stake.poolLogo ? (
@@ -203,7 +203,7 @@ const MyPortfolio = () => {
               Do you really want to proceed?
             </p>
 
-            <div style={{ display: 'flex', gap: '12px' }}>
+            <div className="flex-wrap-row" style={{ gap: '12px' }}>
               <button 
                 className="btn-outline" 
                 style={{ flex: 1, padding: '12px', borderRadius: '8px' }}

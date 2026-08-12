@@ -78,10 +78,10 @@ function App() {
           <div style={{ maxWidth: '1000px', margin: '4rem auto 4rem auto' }}>
             
             <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-              <h1 style={{ fontSize: '3.5rem', fontWeight: '900', letterSpacing: '-1.5px', marginBottom: '1rem' }}>
+              <h1 className="hero-title">
                 Multi-Chain Yield Aggregator
               </h1>
-              <p style={{ fontSize: '1.2rem', color: 'var(--text-gray)', fontWeight: '500', maxWidth: '600px', margin: '0 auto' }}>
+              <p className="hero-subtitle">
                 Stake your assets across Ethereum, BSC, Solana, and TON to earn native rewards with auto-compounding.
               </p>
             </div>

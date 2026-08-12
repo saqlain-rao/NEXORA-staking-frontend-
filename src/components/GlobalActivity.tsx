@@ -106,7 +106,7 @@ const GlobalActivity = () => {
 
   return (
     <div style={{ marginTop: '2rem' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+      <div className="flex-wrap-row" style={{ justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', gap: '1rem' }}>
         <h2 style={{ fontSize: '1.5rem', fontWeight: '800' }}>Global Staking Activity</h2>
         {loading && stakes.length === 0 && <span style={{ fontSize: '0.9rem', color: 'var(--text-gray)' }}>Syncing blockchain...</span>}
       </div>
@@ -249,7 +249,7 @@ const GlobalActivity = () => {
               Do you really want to proceed?
             </p>
 
-            <div style={{ display: 'flex', gap: '12px' }}>
+            <div className="flex-wrap-row" style={{ gap: '12px' }}>
               <button 
                 className="btn-outline" 
                 style={{ flex: 1, padding: '12px', borderRadius: '8px' }}

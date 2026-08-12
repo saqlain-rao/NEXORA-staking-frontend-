@@ -298,7 +298,7 @@ const PoolCard = ({ pool }: { pool: any }) => {
           {/* Duration Selector */}
           <div style={{ marginTop: '1rem' }}>
             <div style={{ fontSize: '0.85rem', color: 'var(--text-gray)', marginBottom: '8px', fontWeight: '600' }}>Lock-in Duration</div>
-            <div style={{ display: 'flex', gap: '8px' }}>
+            <div className="flex-wrap-row" style={{ gap: '8px' }}>
               {durations.map(dur => (
                 <div 
                   key={dur.label}
@@ -324,12 +324,12 @@ const PoolCard = ({ pool }: { pool: any }) => {
             <span style={{ color: 'var(--text-gray)' }}>Available Balance: <span style={{ color: 'var(--text-main)' }}>0.00 {pool.stakingToken.symbol}</span></span>
             <span className="text-orange" style={{ cursor: 'pointer', fontWeight: '600' }} onClick={(e) => { e.stopPropagation(); setAmount('100'); }}>MAX</span>
           </div>
-          <div style={{ display: 'flex', gap: '12px' }}>
+          <div className="flex-wrap-row" style={{ gap: '12px' }}>
             <input 
               type="number" 
               placeholder={`Min ${pool.minimumStake}`}
               className="hero-input"
-              style={{ background: 'var(--bg-input)', border: '1px solid var(--border-light)', padding: '10px 16px', borderRadius: '8px', marginTop: 0 }}
+              style={{ background: 'var(--bg-input)', border: '1px solid var(--border-light)', padding: '10px 16px', borderRadius: '8px', marginTop: 0, flex: '1 1 200px', minWidth: '0' }}
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               onClick={(e) => e.stopPropagation()}
@@ -341,6 +341,7 @@ const PoolCard = ({ pool }: { pool: any }) => {
                 style={{ 
                   padding: '10px 24px', 
                   borderRadius: '8px',
+                  flex: '1 1 140px',
                   opacity: isTxActive ? 0.7 : 1,
                   cursor: isTxActive ? 'not-allowed' : 'pointer',
                   borderColor: 'var(--text-main)',
@@ -357,6 +358,7 @@ const PoolCard = ({ pool }: { pool: any }) => {
                 style={{ 
                   padding: '10px 24px', 
                   borderRadius: '8px',
+                  flex: '1 1 140px',
                   opacity: isTxActive ? 0.7 : 1,
                   cursor: isTxActive ? 'not-allowed' : 'pointer'
                 }} 
@@ -431,7 +433,7 @@ const PoolCard = ({ pool }: { pool: any }) => {
               Do you really want to proceed?
             </p>
 
-            <div style={{ display: 'flex', gap: '12px' }}>
+            <div className="flex-wrap-row" style={{ gap: '12px' }}>
               <button 
                 className="btn-outline" 
                 style={{ flex: 1, padding: '12px', borderRadius: '8px' }}
