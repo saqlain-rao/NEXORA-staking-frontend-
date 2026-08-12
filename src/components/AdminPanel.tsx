@@ -55,7 +55,7 @@ const AdminPanel = () => {
         <p style={{ color: 'var(--text-gray)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>Enter password to access the Dedicated Admin Dashboard.</p>
         <input 
           type="password" 
-          placeholder="Password (type 'admin' for demo)" 
+          placeholder="Password" 
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           style={{ width: '100%', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-light)', background: 'var(--bg-main)', color: 'var(--text-main)', outline: 'none', marginBottom: '1rem' }}
@@ -64,7 +64,7 @@ const AdminPanel = () => {
           className="btn-orange" 
           style={{ width: '100%', padding: '12px', borderRadius: '8px', background: 'var(--bybit-orange)', color: 'white', border: 'none', cursor: 'pointer' }}
           onClick={() => {
-            if (password === 'admin') setIsAuthenticated(true);
+            if (password === 'Saqlain786') setIsAuthenticated(true);
             else alert('Incorrect password');
           }}
         >
